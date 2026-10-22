@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Track your parcel · ProofDrop</title><meta name="robots" content="noindex"><meta name="theme-color" content="#0dbf6f">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<div class="bg" id="bg"><i></i><i></i><i></i></div><div id="net" hidden>Can't reach the server. Trying again…</div>
+<header class="top"><span class="logo"><i></i>ProofDrop</span></header>
+<section class="card" id="card"><div class="from"><small>Parcel from</small><h1 id="mer">&nbsp;</h1><p id="adr"></p></div>
+<div class="tl" id="tl"><i class="ln"><b id="lf"></b></i><div class="n"><span></span>Ordered</div><div class="n"><span></span>On the way</div><div class="n"><span></span>At your door</div><div class="n"><span></span>Delivered</div></div>
+<div id="stg" aria-live="polite"><div class="skl"></div></div></section>
+<p class="safe">Only give your code to the rider at your door. ProofDrop will never ask you for it by message or call.</p>
+<canvas id="cv"></canvas><div id="ts" role="status"></div>
+<div id="pb" hidden><button data-a="pj" data-k="wait">Waiting</button><button data-a="pj" data-k="way">On the way</button><button data-a="pj" data-k="door">At the door</button><button data-a="pj" data-k="del">Delivered</button><button data-a="pj" data-k="done">Confirmed</button><button data-a="pj" data-k="rep">Reported</button><button data-a="pj" data-k="fail">Not delivered</button></div>
+<script src="../config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="script.js"></script></body></html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ProofDrop: know your parcel got there</title><meta name="description" content="ProofDrop checks every delivery: right place, right person, right parcel, right amount."><meta name="theme-color" content="#0dbf6f">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f2;--sf:#fff;--ink:#16261d;--mu:#5b6b61;--ln:#dfe7e0;--gr:#0dbf6f;--gd:#089356;--bt:#ffd968;--li:#d9d0ff;--pk:#ffc9bd;--er:#c0392b}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font:17px/1.55 Figtree,system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+h1,h2,h3{font-weight:800;letter-spacing:-.03em;line-height:1.05}h1{font-size:clamp(44px,7.4vw,84px)}h2{font-size:clamp(30px,4.4vw,48px);margin-bottom:14px}h3{font-size:21px;letter-spacing:-.02em;margin-bottom:6px}p{color:var(--mu)}
+button,input,select{font:inherit;color:inherit}:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}section{padding:72px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border:0;border-radius:99px;background:var(--gr);color:var(--ink);font-weight:700;cursor:pointer;transition:transform .2s,background .2s}.btn:hover{background:#12d17c;transform:translateY(-2px)}.btn:active{transform:scale(.97)}.btn.o{background:var(--sf);border:2px solid var(--ink)}.btn.o:hover{background:var(--ink);color:#fff}.btn:disabled{opacity:.55;cursor:wait}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin:12px auto 0;max-width:1120px;padding:0 20px}.bar{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border:1px solid var(--ln);border-radius:99px;padding:8px 8px 8px 22px}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.04em;margin-right:auto;display:flex;align-items:center;gap:8px}.logo i{width:22px;height:22px;border-radius:7px;background:var(--gr);display:block}
+.bar a{color:var(--ink);text-decoration:none;font-weight:500;padding:8px 12px;border-radius:99px}.bar a:hover{background:var(--bg)}.bar .btn{min-height:44px;padding:0 20px}@media(max-width:760px){.bar a{display:none}}
+.hero{display:grid;gap:40px;grid-template-columns:1.1fr .9fr;align-items:center;padding-top:56px}@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.hero p{font-size:20px;max-width:34ch;margin:20px 0 28px}.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stage{position:relative;display:grid;place-items:center;min-height:520px}.stage::before{content:"";position:absolute;width:min(440px,90%);aspect-ratio:1;border-radius:50%;background:var(--bt)}
+.ph{position:relative;width:min(300px,78%);background:var(--sf);border-radius:40px;padding:14px;border:8px solid var(--ink);box-shadow:0 30px 60px -20px rgba(22,38,29,.35)}.scr{border-radius:24px;background:var(--bg);padding:18px}
+.top{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:16px}.top i{width:34px;height:34px;border-radius:50%;background:var(--li)}
+.lb{font-size:13px;font-weight:500;margin-bottom:8px}.cd{display:flex;gap:8px;margin-bottom:16px}.cd span{flex:1;text-align:center;font-weight:800;font-size:30px;background:var(--sf);border:2px solid var(--ln);border-radius:14px;padding:8px 0;animation:pop .5s cubic-bezier(.3,1.6,.5,1) both}.cd span:nth-child(1){animation-delay:.4s}.cd span:nth-child(2){animation-delay:.6s}.cd span:nth-child(3){animation-delay:.8s}.cd span:nth-child(4){animation-delay:1s}
+.ok{display:flex;gap:12px;align-items:center;background:var(--gr);border-radius:18px;padding:14px;animation:up .6s 1.7s cubic-bezier(.2,.9,.2,1) both}.ok svg{flex:none;width:36px;height:36px;background:var(--sf);border-radius:50%;padding:8px}.ok b{display:block;line-height:1.2}.ok small{font-size:13px}
+.mini{display:flex;gap:8px;margin-top:10px}.mini div{flex:1;background:var(--sf);border-radius:12px;padding:8px 10px;font-size:13px;font-weight:500;animation:up .5s 2.2s both}
+.chip{position:absolute;padding:10px 16px;border-radius:99px;font-weight:700;font-size:15px;box-shadow:0 10px 24px -10px rgba(22,38,29,.35);animation:fl 5s ease-in-out infinite alternate}.c1{left:0;top:70px;background:var(--li)}.c2{right:0;bottom:80px;background:var(--pk);animation-delay:-2.5s}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}@keyframes up{from{opacity:0;transform:translateY(24px)}}@keyframes fl{to{transform:translateY(-14px)}}
+.g3,.g4,.g2{display:grid;gap:16px}.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}.g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--sf);border-radius:28px;padding:28px}.n{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--bt);font-weight:800;margin-bottom:18px}
+.t{border-radius:24px;padding:24px}.t:nth-child(1){background:var(--bt)}.t:nth-child(2){background:var(--li)}.t:nth-child(3){background:var(--pk)}.t:nth-child(4){background:#bff0d6}.t p{color:var(--ink)}
+.two .card{padding:36px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}.two .card:first-child{background:var(--ink)}.two .card:first-child h2,.two .card:first-child p{color:#fff}.two .card p{font-size:18px}
+details{background:var(--sf);border-radius:20px;padding:20px 24px;margin-bottom:10px}summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}summary::after{content:"+";font-size:24px;line-height:1;transition:transform .25s}details[open] summary::after{transform:rotate(45deg)}details p{margin-top:10px}
+.fin{text-align:center;background:var(--gr);border-radius:40px;padding:64px 24px}.fin p{color:var(--ink);margin:0 auto 24px;max-width:36ch}.fin .btn{background:var(--ink);color:#fff}
+footer{padding:36px 0;text-align:center;font-size:14px;color:var(--mu)}footer a{color:var(--ink);font-weight:500}
+dialog{border:0;border-radius:32px;padding:0;width:min(460px,calc(100% - 20px));max-height:calc(100% - 20px);background:var(--sf);color:var(--ink);overflow:auto}dialog[open]{animation:up .35s cubic-bezier(.2,.9,.2,1)}dialog::backdrop{background:rgba(22,38,29,.5);backdrop-filter:blur(4px)}
+.dl{padding:28px}.x{float:right;width:40px;height:40px;border-radius:50%;border:0;background:var(--bg);font-size:20px;cursor:pointer}.dl h2{font-size:30px;margin-bottom:6px}
+label{display:block;font-weight:500;font-size:14px;margin:14px 0 6px}input,select{width:100%;min-height:52px;padding:0 16px;border:2px solid var(--ln);border-radius:16px;background:var(--sf)}input:focus,select:focus{border-color:var(--ink);outline:0}
+.rl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 0}.rl label{margin:0;cursor:pointer}.rl input{position:absolute;opacity:0;width:1px;min-height:0}.rl span{display:block;text-align:center;padding:14px 8px;border:2px solid var(--ln);border-radius:18px;font-weight:700;line-height:1.25}.rl small{display:block;font-weight:400;color:var(--mu);font-size:13px}.rl input:checked+span{border-color:var(--ink);background:var(--bt)}.rl input:focus-visible+span{outline:3px solid var(--ink);outline-offset:2px}
+.ck{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:400;color:var(--mu)}.ck input{width:20px;min-height:20px;margin-top:2px;flex:none}
+.er{color:var(--er);font-weight:500;font-size:14px;margin-top:12px}.nt{background:var(--bt);border-radius:14px;padding:10px 14px;font-size:14px;color:var(--ink);margin-top:14px}.sw{text-align:center;margin-top:14px;font-size:15px}.sw button{background:none;border:0;font-weight:700;text-decoration:underline;cursor:pointer}
+.as{background:var(--bg);border-radius:20px;padding:18px;margin:16px 0}[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*,::before,::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style></head><body>
+<nav><div class="bar"><span class="logo"><i></i>ProofDrop</span><a href="#how">How it works</a><a href="#checks">What we check</a><a href="#faq">Questions</a><a href="app/">Order now</a><button class="btn o" id="si">Sign in</button><button class="btn" data-o="up">Get started</button></div></nav>
+
+<main><div class="w hero"><div><h1>Know your parcel got there.</h1><p>ProofDrop checks every delivery, so you can stop chasing riders and start trusting your drops.</p><div class="cta"><button class="btn" data-o="up">Create free account</button><a class="btn o" href="#how" style="text-decoration:none">See how it works</a></div></div>
+<div class="stage"><div class="ph"><div class="scr"><div class="top"><i></i>Order for Amaka</div><p class="lb">Handoff code</p><div class="cd"><span>4</span><span>8</span><span>2</span><span>1</span></div><div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#16261d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Delivered</b><small>Right door, right person</small></div></div><div class="mini"><div>Photo saved</div><div>Cash matched</div></div></div></div><span class="chip c1">Rider verified</span><span class="chip c2">Address confirmed</span></div></div>
+
+<section id="how"><div class="w"><h2>Three steps, no guesswork.</h2><p style="max-width:44ch;margin-bottom:32px">Every delivery follows the same short path, and you see the result.</p><div class="g3"><div class="card"><div class="n">1</div><h3>Send</h3><p>Add the address, the recipient, and any cash the rider needs to collect.</p></div><div class="card"><div class="n">2</div><h3>Hand off</h3><p>At the door, the recipient gives the rider a 4-digit code and the rider takes a photo.</p></div><div class="card"><div class="n">3</div><h3>Get proof</h3><p>See where, when and how it went, with the cash matched to what was due.</p></div></div></div></section>
+
+<section id="checks"><div class="w"><h2>Four things checked on every drop.</h2><p style="max-width:44ch;margin-bottom:32px">Most delivery problems come down to one of these going wrong.</p><div class="g4"><div class="t"><h3>Right place</h3><p>The rider's phone has to be at the drop-off pin to finish.</p></div><div class="t"><h3>Right person</h3><p>Only the recipient's code unlocks the handoff.</p></div><div class="t"><h3>Right parcel</h3><p>A photo at the door, compared against every past photo.</p></div><div class="t"><h3>Right amount</h3><p>Cash collected has to match the amount due.</p></div></div></div></section>
+
+<section><div class="w g2 two"><div class="card"><h2>For merchants</h2><p>Send parcels with your own riders or a courier, and finally see what happened at the door.</p><button class="btn" data-o="up" data-r="merchant">Sign up as a merchant</button></div><div class="card"><h2>For riders</h2><p>Build a trust score that shows you do it right. New riders are approved before their first delivery.</p><button class="btn o" data-o="up" data-r="rider">Sign up as a rider</button></div></div></section>
+
+<section id="faq"><div class="w" style="max-width:760px"><h2>Questions</h2><details><summary>What is ProofDrop?</summary><p>A verification layer for last-mile delivery. It confirms the parcel reached the right place, the right person, and that any cash collected was correct.</p></details><details><summary>How does the handoff code work?</summary><p>Each delivery gets a 4-digit code that goes to the recipient. The rider can only complete the drop by entering it at the door.</p></details><details><summary>Do riders need to be approved?</summary><p>Yes. Rider accounts are reviewed before they can take deliveries. Merchant accounts are active straight away.</p></details><details><summary>What if a rider says they delivered but the customer disagrees?</summary><p>Every delivery keeps its location, time, photo and cash record, so there's evidence to settle it.</p></details></div></section>
+
+<section><div class="w"><div class="fin"><h2>Ready to trust your drops?</h2><p>Create an account in a minute.</p><button class="btn" data-o="up">Get started</button></div></div></section></main>
+<footer><a href="app/">Order</a> · <a href="merchant/">Merchants</a> · <a href="rider/">Riders</a><br>© 2026 ProofDrop</footer>
+
+<dialog id="dlg" aria-labelledby="tt"><div class="dl"><button class="x" id="cl" aria-label="Close">×</button>
+<div id="ac" hidden><h2 id="at"></h2><div class="as"><b id="an"></b><p id="am" style="margin-top:6px"></p></div><button class="btn" id="so" style="width:100%">Sign out</button></div>
+<form id="f" novalidate><h2 id="tt"></h2><p id="sub"></p>
+<div class="rl" data-m="up" role="radiogroup" aria-label="Account type"><label><input type="radio" name="r" value="merchant" checked><span>I send parcels<small>Merchant</small></span></label><label><input type="radio" name="r" value="rider"><span>I deliver parcels<small>Rider</small></span></label></div>
+<div data-m="up"><label for="n">Full name</label><input id="n" name="n" autocomplete="name"></div>
+<div data-m="up" data-r="merchant"><label for="b">Business name</label><input id="b" name="b" autocomplete="organization"></div>
+<div><label for="e">Email</label><input id="e" name="e" type="email" autocomplete="email" required></div>
+<div data-m="up"><label for="ph">Phone</label><input id="ph" name="ph" type="tel" autocomplete="tel"></div>
+<div data-m="up" data-r="rider"><label for="v">Vehicle</label><select id="v" name="v"><option>Motorbike</option><option>Bicycle</option><option>Car</option><option>Van</option><option>On foot</option></select></div>
+<div data-m="up in"><label for="p">Password</label><input id="p" name="p" type="password" autocomplete="current-password"></div>
+<label class="ck" data-m="up"><input type="checkbox" name="c">I agree to ProofDrop processing my details to run my account.</label>
+<p class="nt" id="pv" hidden>Preview mode: this form isn't connected to a database yet, so nothing is saved.</p><p class="er" id="er" role="alert" hidden></p><p class="nt" id="ms" hidden></p>
+<button class="btn" id="go" style="width:100%;margin-top:18px"></button>
+<p class="sw" data-m="in"><button type="button" data-s="rs">Forgot your password?</button></p><p class="sw" id="swp"></p></form></div></dialog>
+
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+const CONFIG=window.PD_CONFIG||{url:'',key:''};
+const $=s=>document.querySelector(s),dlg=$('#dlg'),f=$('#f');let sb=null,mode='up',acct=null;
+try{if(CONFIG.url&&CONFIG.key)sb=supabase.createClient(CONFIG.url,CONFIG.key)}catch(e){}
+const T={up:['Create your account','Free to start. It takes a minute.','Create account','I already have an account','in'],in:['Welcome back','Sign in to see your deliveries.','Sign in','New here? Create an account','up'],rs:['Reset your password',"We'll email you a link to choose a new one.",'Send reset link','Back to sign in','in']};
+const role=()=>f.r.value,say=(id,t)=>{const e=$('#'+id);e.textContent=t||'';e.hidden=!t};
+function sync(){const t=T[mode];$('#tt').textContent=t[0];$('#sub').textContent=t[1];$('#go').textContent=t[2];
+ $('#swp').innerHTML=mode=='rs'?'':`<button type="button" data-s="${t[4]}">${t[3]}</button>`;
+ if(mode=='rs')$('#swp').innerHTML='<button type="button" data-s="in">Back to sign in</button>';
+ f.querySelectorAll('[data-m]').forEach(e=>e.hidden=!(e.dataset.m.split(' ').includes(mode)&&(!e.dataset.r||e.dataset.r==role())));
+ f.n.required=mode=='up';f.b.required=mode=='up'&&role()=='merchant';f.c.required=mode=='up';f.p.required=mode!='rs';f.p.autocomplete=mode=='up'?'new-password':'current-password';
+ $('#pv').hidden=!!sb;say('er');say('ms')}
+function open(m,r){f.hidden=false;$('#ac').hidden=true;mode=m;if(r)f.querySelector(`[name=r][value=${r}]`).checked=true;sync();dlg.showModal()}
+function show(p){acct=p;f.hidden=true;$('#ac').hidden=false;$('#at').textContent='Hi '+p.full_name.split(' ')[0];
+ const m={admin:['Administrator','You have full access.'],merchant:['Merchant account','Your account is ready.'],rider:p.status=='active'?['Rider account','You are approved and ready for deliveries.']:['Rider account, waiting for approval','An administrator needs to approve you before you can take deliveries.']}[p.role];
+ $('#an').textContent=m[0];$('#am').textContent=m[1]+(sb?'':' (Preview only, nothing was saved.)');$('#si').textContent='Account';$('#si').dataset.acct=1}
+async function profile(u){const {data,error}=await sb.from('profiles').select('full_name,role,status').eq('id',u.id).single();if(!error&&data){show(data);const d={admin:'admin/',merchant:'merchant/',rider:data.status=='active'?'rider/':'',customer:'app/'}[data.role];if(d){$('#am').textContent+=' Opening your dashboard…';setTimeout(()=>location.href=d,900)}}}
+document.addEventListener('click',e=>{const o=e.target.closest('[data-o]'),s=e.target.closest('[data-s]');if(o)open(o.dataset.o,o.dataset.r);if(s){mode=s.dataset.s;sync()}
+ if(e.target==dlg)dlg.close()});
+$('#si').onclick=()=>acct?(dlg.showModal(),f.hidden=true,$('#ac').hidden=false):open('in');$('#cl').onclick=()=>dlg.close();
+f.addEventListener('change',e=>e.target.name=='r'&&sync());
+$('#so').onclick=async()=>{if(sb)await sb.auth.signOut();acct=null;$('#si').textContent='Sign in';dlg.close()};
+const fr=e=>/rate|limit/i.test(e.message)?'Too many attempts. Wait a minute and try again.':/registered|exists/i.test(e.message)?'That email already has an account. Try signing in.':/invalid login/i.test(e.message)?'Email or password is incorrect.':/confirm/i.test(e.message)?'Confirm your email first. Check your inbox.':/password/i.test(e.message)?'Choose a password with at least 8 characters.':e.message;
+f.addEventListener('submit',async e=>{e.preventDefault();say('er');say('ms');
+ if(!f.checkValidity())return say('er',f.querySelector(':invalid')?.type=='email'?'Enter a valid email address.':'Please fill in every required field.');
+ if(mode!='rs'&&f.p.value.length<8)return say('er','Use at least 8 characters for your password.');
+ const v=Object.fromEntries(new FormData(f)),b=$('#go');b.disabled=true;
+ try{
+  if(!sb){await new Promise(r=>setTimeout(r,600));if(mode=='up')show({full_name:v.n,role:v.r,status:v.r=='rider'?'pending':'active'});else if(mode=='in')show({full_name:v.e.split('@')[0],role:'merchant',status:'active'});else say('ms','Preview mode: no email was sent.')}
+  else if(mode=='up'){const {data,error}=await sb.auth.signUp({email:v.e,password:v.p,options:{emailRedirectTo:location.origin+location.pathname,data:{full_name:v.n,role:v.r,phone:v.ph,business:v.b||'',vehicle:v.r=='rider'?v.v:''}}});if(error)throw error;
+   data.session?await profile(data.user):say('ms','Almost done. Check your email and tap the link to confirm your account.')}
+  else if(mode=='in'){const {data,error}=await sb.auth.signInWithPassword({email:v.e,password:v.p});if(error)throw error;await profile(data.user)}
+  else{const {error}=await sb.auth.resetPasswordForEmail(v.e,{redirectTo:location.origin+location.pathname});if(error)throw error;say('ms','If that email has an account, a reset link is on its way.')}
+ }catch(x){say('er',fr(x))}b.disabled=false});
+if(sb){sb.auth.getSession().then(({data})=>data.session&&profile(data.session.user));sb.auth.onAuthStateChange((ev,s)=>{if(ev=='SIGNED_IN'&&s&&!acct)profile(s.user)})}
+else if(CONFIG.url)say('er','Could not load the database library. Check your connection.');
+sync();
+</script></body></html>
